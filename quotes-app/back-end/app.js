@@ -7,14 +7,16 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http:localhost:3000"],
+    origin: ["http://localhost:3000"],
   })
 );
+
+app.use(express.json()); //body parsing middleware
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/react-quotes-app")
   .then(() => {
-    console.log("db connected")
+    console.log("db connected");
   })
   .catch((err) => {
     console.log(err);
